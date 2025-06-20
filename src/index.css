@@ -38,11 +38,19 @@ body {
     background-image: url("../src/assets/images/png/slider-bg.png");
 }
 
-.swiper-slide {
+.custom-swiper .custom-slide {
+    width: 230px !important;
+    height: 300px !important;
     opacity: 0.6;
-    transition: opacity 0.3s;
+    transform: scale(0.85);
+    transition: all 0.5s ease;
+    z-index: 1;
 }
 
-.swiper-slide-active {
+.custom-swiper .swiper-slide-active {
+    width: 382px !important;
+    height: 457px !important;
+    transform: scale(1);
     opacity: 1;
+    z-index: 10;
 }
