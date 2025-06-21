@@ -24,7 +24,7 @@ const ExploreSwiper = () => {
         <div className="mx-w-[1920px] min-h-[802px] w-full bg-[#0b1743] flex items-center xl:pl-29 lg:pl-5 max-lg:py-10 overflow-hidden slider-bg">
             <div className="lg:flex w-full max-w-[1440px] mx-auto justify-between xl:gap-[47px] lg:gap-4 relative">
                 <div className="text-white lg:max-w-[500px] max-lg:text-center">
-                    <h2 className="oswald-heading text-[36px] md:text-[48px]">
+                    <h2 className="oswald-heading text-[36px] md:text-[48px] lg:max-w-[403px]">
                         Your world is the game board, and your mind is at stake.
                     </h2>
                     <p className="pt-4 text-lg max-lg:mb-18">
@@ -59,7 +59,7 @@ const ExploreSwiper = () => {
                                 ))}
                             </Swiper>
                         </div>
-                        <div className="flex flex-row items-center lg:gap-3 md:gap-12 gap-4">
+                        <div className="flex flex-row items-center lg:gap-3 md:gap-5 gap-4">
                             {getSideSlides(current).map((slide, i) => (
                                 <img
                                     key={i}
@@ -73,16 +73,15 @@ const ExploreSwiper = () => {
                     </div>
                     <div className='absolute xl:right-[22.5%] xl:top-[84%] lg:top-[78%] md:top-[28%] top-[34%] lg:right-[10%]'>
                         <button onClick={() => swiperRef.current?.slidePrev()} className="focus:outline-none cursor-pointer mx-4">
-                            <img src={leftArrow} alt="leftArrow" />
+                            <img src={leftArrow} alt="leftArrow" className="transition-transform duration-200 hover:scale-110 h-[25px] w-[25px]"/>
                         </button>
-                        <button onClick={() => swiperRef.current?.slideNext()} className="focus:outline-none cursor-pointer mx-4">
-                            <img src={rightArrow} alt="rightArrow" />
+                        <button
+                            onClick={() => swiperRef.current?.slideNext()} className="focus:outline-none cursor-pointer mx-4">
+                            <img src={rightArrow} alt="rightArrow" className="transition-transform duration-200 hover:scale-110 h-[25px] w-[25px]"/>
                         </button>
                     </div>
                     <div className="flex flex-row items-center max-lg:justify-center mt-8 w-full">
-                        <span className="text-white text-lg">
-                            Explore the World Around You
-                        </span>
+                        <span className="text-white text-lg">Explore the World Around You</span>
                     </div>
                 </div>
             </div>
