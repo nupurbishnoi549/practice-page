@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 import sliderImg1 from '../assets/images/png/slider-img.png';
 import sliderImg2 from '../assets/images/png/slider-img2.png';
 import sliderImg3 from '../assets/images/png/slider-img3.png';
@@ -8,19 +12,13 @@ import rightArrow from '../assets/images/svg/right-arrow.svg';
 const slides = [sliderImg1, sliderImg2, sliderImg3];
 
 const ExploreSwiper = () => {
+    const swiperRef = useRef(null);
     const [current, setCurrent] = useState(0);
 
-    const getSlides = () => {
-        const a = slides[current % slides.length];
-        const b = slides[(current + 1) % slides.length];
-        const c = slides[(current + 2) % slides.length];
-        return [a, b, c];
-    };
-
-    const handlePrev = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-    const handleNext = () => setCurrent((prev) => (prev + 1) % slides.length);
-
-    const [big, small1, small2] = getSlides();
+    const getSideSlides = (index) => [
+        slides[(index + 1) % slides.length],
+        slides[(index + 2) % slides.length],
+    ];
 
     return (
         <div className="mx-w-[1920px] min-h-[802px] w-full bg-[#0b1743] flex items-center xl:pl-29 lg:pl-5 max-lg:py-10 overflow-hidden slider-bg">
@@ -34,39 +32,50 @@ const ExploreSwiper = () => {
                     </p>
                 </div>
                 <div className="flex flex-col lg:items-start items-center">
-                    <div className="flex lg:flex-row flex-col  lg:items-center items-center md:gap-y-6 gap-3">
-                        <img
-                            src={big}
-                            alt="Main Slide"
-                            className={`xl:w-[330px] lg:w-[265px] lg:h-[310px] md:w-[350px] w-[320px] h-[320px] md:h-[350px] xl:h-[457px]
-                object-cover transition-all duration-700 ease-in-out transform scale-100 opacity-100`}
-                            draggable={false}
-                        />
-
-                        <div className="flex flex-row items-center lg:gap-3 md:gap-5 gap-4 transition-all duration-700 ease-in-out">
-                            <img
-                                src={small1}
-                                alt="Slide 2"
-                                className={`xl:size-[210px] size-[150px] object-cover opacity-70
-                    transition-all duration-700 ease-in-out transform hover:scale-[1.03]`}
-                                draggable={false}
-                            />
-                            <img
-                                src={small2}
-                                alt="Slide 3"
-                                className={`xl:size-[210px] size-[150px] object-cover opacity-70
-                    transition-all duration-700 ease-in-out transform hover:scale-[1.03]`}
-                                draggable={false}
-                            />
+                    <div className="flex lg:flex-row flex-col lg:items-center items-center md:gap-y-6 gap-3">
+                        <div className="relative xl:w-[330px] lg:w-[265px] lg:h-[310px] md:w-[350px] w-[320px] h-[320px] md:h-[350px] xl:h-[457px] overflow-hidden">
+                            <Swiper
+                                slidesPerView={1}
+                                spaceBetween={0}
+                                loop={true}
+                                navigation={{
+                                    prevEl: '.swiper-button-prev',
+                                    nextEl: '.swiper-button-next',
+                                }}
+                                modules={[Navigation]}
+                                onSlideChange={(swiper) => setCurrent(swiper.realIndex)}
+                                onSwiper={(swiper) => (swiperRef.current = swiper)}
+                                className="w-full h-full"
+                            >
+                                {slides.map((slide, index) => (
+                                    <SwiperSlide key={index} className="w-full h-full">
+                                        <img
+                                            src={slide}
+                                            alt={`Slide ${index}`}
+                                            className="w-full h-full object-cover"
+                                            draggable={false}
+                                        />
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
                         </div>
-
+                        <div className="flex flex-row items-center lg:gap-3 md:gap-12 gap-4">
+                            {getSideSlides(current).map((slide, i) => (
+                                <img
+                                    key={i}
+                                    src={slide}
+                                    alt={`Slide ${i + 1}`}
+                                    className="xl:size-[210px] size-[150px] object-cover opacity-70 transition-all duration-300 ease-in-out transform hover:scale-[1.03]"
+                                    draggable={false}
+                                />
+                            ))}
+                        </div>
                     </div>
-
-                    <div className='absolute xl:right-[22.5%]  xl:top-[84%] lg:top-[78%] md:top-[28%] top-[34%] lg:right-[10%] '>
-                        <button onClick={handlePrev} className="focus:outline-none cursor-pointer mx-4">
-                            <img src={leftArrow} alt="leftArrow" className='' />
+                    <div className='absolute xl:right-[22.5%] xl:top-[84%] lg:top-[78%] md:top-[28%] top-[34%] lg:right-[10%]'>
+                        <button onClick={() => swiperRef.current?.slidePrev()} className="focus:outline-none cursor-pointer mx-4">
+                            <img src={leftArrow} alt="leftArrow" />
                         </button>
-                        <button onClick={handleNext} className="focus:outline-none cursor-pointer mx-4 ">
+                        <button onClick={() => swiperRef.current?.slideNext()} className="focus:outline-none cursor-pointer mx-4">
                             <img src={rightArrow} alt="rightArrow" />
                         </button>
                     </div>
