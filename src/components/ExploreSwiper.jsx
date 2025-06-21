@@ -68,7 +68,7 @@ const ExploreSwiper = () => {
                             ))}
                         </div>
                     </div>
-                    <div className='absolute xl:right-[22.5%] xl:top-[84%] lg:top-[78%] md:top-[28%] top-[34%] lg:right-[10%]'>
+                    <div className='absolute xl:right-[22.5%] xl:top-[84%] lg:top-[78%] md:top-[28%] top-[33%] lg:right-[10%]'>
                         <button onClick={() => swiperRef.current?.slidePrev()} className="focus:outline-none cursor-pointer mx-4">
                             <img src={leftArrow} alt="leftArrow" className="transition-transform duration-200 hover:scale-110 h-[25px] w-[25px]"/>
                         </button>

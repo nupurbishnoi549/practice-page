@@ -92,7 +92,7 @@ const Form = () => {
                     </div>
                 </div>
 
-                <div className='flex gap-5 mt-5'>
+                <div className='md:flex gap-5 mt-5'>
                     <Input
                         name="Titel"
                         value={formValues.Titel}
@@ -109,7 +109,7 @@ const Form = () => {
                     />
                 </div>
 
-                <div className='flex gap-5 mt-3'>
+                <div className='md:flex gap-5 mt-3'>
                     <Input
                         name="Standort"
                         value={formValues.Standort}
@@ -131,7 +131,7 @@ const Form = () => {
                 ></textarea>
                 <div className='justify-center flex mt-5'>
 
-                    <button className="font-bold text-white px-28 py-4 cursor-pointer rounded-full bg-gradient-to-r from-[#0071BB] to-[#39A3E7] hover:from-[#39A3E7] hover:to-[#0071BB] hover:bg-gradient-to-l transition-all duration-300"
+                    <button className="font-bold text-white max-md:w-full md:px-28 py-4 cursor-pointer rounded-full bg-gradient-to-r from-[#0071BB] to-[#39A3E7] hover:from-[#39A3E7] hover:to-[#0071BB] hover:bg-gradient-to-l transition-all duration-300"
                     >
                         Event einsenden
                     </button>
