@@ -79,7 +79,7 @@ const Form = () => {
                         name="category"
                         value={form.category}
                         onChange={handleInputChange}
-                        className="appearance-none w-full p-4 rounded-4xl border focus:outline-none focus:ring focus:ring-black border-[#D1E0E9] text-sm font-bold bg-white shadow-sm"
+                        className="appearance-none w-full p-4 rounded-4xl border focus:outline-none focus:ring focus:ring-black border-[#D1E0E9] text-sm text-[#737376] font-bold bg-white shadow-sm"
                         required
                     >
                         <option value="">Kategorie</option>
@@ -87,7 +87,7 @@ const Form = () => {
                         <option value="sport">Sport</option>
                         <option value="kultur">Kultur</option>
                     </select>
-                    <div className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 text-base">
+                    <div className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-[#222222] text-base">
                         ▼
                     </div>
                 </div>
