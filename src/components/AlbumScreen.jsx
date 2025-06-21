@@ -26,10 +26,13 @@ const Alphabets = () => {
                                 <button
                                     key={type}
                                     onClick={() => setSelectedGenre(type)}
-                                    className={`px-4 py-2 rounded-full text-sm cursor-pointer transition-all duration-300 transform${selectedGenre === type
-                                            ? "bg-gray-800 text-white font-medium shadow-lg scale-105"
-                                            : "bg-black text-white hover:bg-gray-800 hover:shadow-md hover:scale-105 hover:text-[#ffb703]"
-                                        }`} >  {type} </button> ))}
+                                    className={`px-4 py-2 rounded-full text-sm cursor-pointer transition-all duration-300 transform ${selectedGenre === type
+                                            ? "bg-gray-800 text-white font-medium scale-105"
+                                            : "bg-black text-white hover:bg-gray-700 hover:scale-105"}`}
+                                > {type}
+                                </button>
+
+                            ))}
                         </div>
                         <div className="flex items-center gap-2">
                             {ALPHABET_LIST.map((item, index) => (
@@ -38,7 +41,8 @@ const Alphabets = () => {
                                     onClick={() => handleChange(item)}
                                     className={`cursor-pointer px-3 py-1 text-sm rounded-full ${selectedLetter === item
                                             ? "bg-black text-white font-medium"
-                                            : "text-black hover:bg-gray-300" }`} > {item}
+                                            : "text-black hover:bg-gray-300"
+                                        }`} > {item}
                                 </span>))}
                         </div>
                     </div>
