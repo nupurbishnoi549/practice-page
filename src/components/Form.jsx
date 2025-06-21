@@ -51,7 +51,7 @@ const Form = () => {
             <div className='max-w-[768px] mx-auto'>
                 <h2 className='font-bold text-4xl text-center pb-5'>Event einsenden</h2>
                 <p className='font-light text-xl max-w-[768px] text-center pb-5'>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                <div className='bg-color shadow py-2 rounded-4xl pl-4 border border-dashed border-[#D1E0E9] max-w-[763px] overflow-x-auto custom-scroll'>
+                <div className='bg-color shadow py-2 rounded-4xl pl-4 border border-dashed border-[#D1E0E9] max-w-[763px] overflow-x-auto'>
                     <div className="flex flex-wrap gap-4 items-center min-w-max">
                         {images.map((img, idx) => (
                             <div key={idx} className="w-24 h-24 rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center shrink-0">
