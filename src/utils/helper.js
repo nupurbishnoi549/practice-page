@@ -1,3 +1,9 @@
+import sliderImg1 from '../assets/images/png/slider-img.png';
+import sliderImg2 from '../assets/images/png/slider-img2.png';
+import sliderImg3 from '../assets/images/png/slider-img3.png';
+
+export const slides = [sliderImg1, sliderImg2, sliderImg3];
+
 export const ALPHABET_LIST = [
     "A",
     "B",

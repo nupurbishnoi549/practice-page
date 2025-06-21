@@ -47,7 +47,7 @@ const Form = () => {
     };
 
     return (
-        <div className='py-[60px]'>
+        <div className='py-[60px] px-4'>
             <div className='max-w-[768px] mx-auto'>
                 <h2 className='font-bold text-4xl text-center pb-5'>Event einsenden</h2>
                 <p className='font-light text-xl max-w-[768px] text-center pb-5'>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>

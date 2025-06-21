@@ -3,13 +3,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import sliderImg1 from '../assets/images/png/slider-img.png';
-import sliderImg2 from '../assets/images/png/slider-img2.png';
-import sliderImg3 from '../assets/images/png/slider-img3.png';
+import { slides } from "../utils/helper";
 import leftArrow from '../assets/images/svg/left-arrow.svg';
 import rightArrow from '../assets/images/svg/right-arrow.svg';
 
-const slides = [sliderImg1, sliderImg2, sliderImg3];
 
 const ExploreSwiper = () => {
     const swiperRef = useRef(null);
